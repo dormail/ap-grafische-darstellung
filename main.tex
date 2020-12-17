@@ -4,8 +4,14 @@
 \usepackage{amsmath, amssymb}
 
 \usepackage{float}
+\floatplacement{table}{htbp}
+
 \usepackage{graphicx}
 \usepackage{siunitx}
+
+\usepackage{booktabs}
+\usepackage{scrhack}
+\usepackage[german]{hyperref}
 
 
 \begin{document}
@@ -16,7 +22,69 @@
 \end{figure}
 Somit lautet die Federkonstante
 \[
-	k = 1.752 \frac{\si{\kg}}{\si{\second^2}}
+	k = 1.752 \frac{\si{\kg}}{\si{\second^2}}.
 \]
+
+\newpage
+\section*{Aufgabe 2}
+\subsection*{a)}
+\begin{table}
+	\centering
+	\begin{tabular}{c c c}
+		\toprule
+		$g/\si{\mm}$ & $b/\si{\mm}$ & 
+		$f/\si{\mm}$ \\
+		\midrule
+		60	& 285	& 49.565217 \\
+		80	& 142	& 51.171171 \\
+		100	& 117	& 53.917051 \\
+		110	& 85	& 47.948718 \\
+		120	& 86	& 50.097087 \\
+		125	& 82	& 49.516908 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Man erhält Mittelwert, Standartabweichung und Messunsicherheit lauten
+dann von
+\begin{align*}
+	m &= \frac{1}{n} \sum_k x_k =  50.36\si\mm
+	\\
+	\sigma &= 1.85 \si\mm
+	\\
+	u &= \frac{1}{\sqrt{n}} \sigma 
+	= \frac{1}{\sqrt{6}} \cdot 1.85\si\mm
+	= 0.755 \si\mm
+\end{align*}
+
+\subsection*{b)}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics{aufgabe2/aufgabe2-plot.pdf}
+\end{figure}
+
+Die lineare Regression liefert die Gleichung
+\begin{equation}
+	F := \frac{1}{f} = m\cdot x + b
+	\label{eqn:geradengleichung}
+\end{equation}
+mit den Werten
+\[
+	m = -1.01 \quad b = \frac{0.01998}{\si\mm}
+\]
+Setzt man in \autoref{eqn:geradengleichung} $x=0$ erhält man
+\[
+	\frac{1}{f} = b \Leftrightarrow
+	f = \frac{1}{b} \approx 50.043620 \si\mm
+\]
+
+\subsection*{c)}
+Die zwei Werte liegen sehr nah beieinander mit einer Differenz
+\[
+	\Delta m = m_1 - m_2 \approx 0.32 \si\mm
+\]
+Welcher kleiner als die Messungenauigkeit $u$ in a) ist, weswegen
+beide Methoden als gleich gut zu bewerten sind.
 
 \end{document}

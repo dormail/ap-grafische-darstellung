@@ -15,15 +15,19 @@ B = 1/b
 f = 1 / (G + B)
 mean = np.mean(f)
 s = np.std(f)
+u = 1/np.sqrt(6) * s
 print(f)
 print(f'Mittelwert: {mean}')
 print(f'Standartabweichung: {s}')
+print(f'Unsicherheit: {u}')
 
 # Aufgabe b)
 # berehchne gerade mit 1/f = m*x+b
 
 m, y0, r, p, std_err  = stats.linregress(G,B)
 x = np.linspace(0,0.02,1000)
+print('Geradengleichung: y=m*x + y0')
+print(f'm = {m}\t y0={y0}')
 plt.plot(x, m*x + y0, label="Ausgleichsgerade");
 
 plt.scatter(G,B, marker="+", color='k', label="Daten")
@@ -38,4 +42,4 @@ plt.ylabel(r'$B = 1/b$')
 print('Laut linregress:')
 print(f'f = {1 / y0}')
 
-plt.show()
+plt.savefig('aufgabe2-plot.pdf')
