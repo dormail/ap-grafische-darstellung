@@ -22,4 +22,4 @@ plt.legend()
 plt.xlabel(r'$m/$g')
 plt.ylabel(r'$x/$cm')
 
-plt.show()
+plt.savefig('aufgabe1-plot.pdf')
